@@ -15,6 +15,16 @@
             ]
         },
         {
+            "label": "recompile arcadeSystem",
+            "type": "shell",
+            "command": "make all -C source",
+            "dependsOn": "clean arcadeSystem",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
             "label": "build arcadeSystem",
             "type": "shell",
             "command": "make all -C source",

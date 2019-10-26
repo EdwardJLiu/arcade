@@ -1,31 +1,36 @@
-// GameNode.h
-
+// GameNode 
+ 
+// include the files we need
 #include "Node.h"
 #include "Config.h"
-#include "SimpleGame.h"
-
-
-class GameNode : public Node 
+#include "SimpleGame.h" 
+#include <stdio.h>
+class GameNode : public Node // publicly inherits from Node
 {
+public:
+    // Constructor                                            // initializer list
     GameNode(SDL_Renderer* renderer_in, Node* parentNode_in): Node(renderer_in, parentNode_in)
     {
-        SimpleGame* game = new SimpleGame;
-        game -> addTextureToScreen(createImage(renderer_in, "brickBreakerNodeImages/brickBreakerScreen.png", true));
-
+        // create a gameScreen and add a texture to it
+        SimpleGame* game = new SimpleGame; 
+        game->addTextureToScreen(createImage(renderer_in,"brickBreakerNodeImages/brickBreakerScreen.png", true));
+        
+        // create an entity for the gameScreen
         Ball* ball = new Ball;
-        ArcadeTecture* ballTecture = createImage(renderer_in, "brickBreakerNodeImages/ballTecture.png");
 
+        // create an image for the entity
+        ArcadeTexture* ballTexture = createImage(renderer_in, "brickBreakerNodeImages/ballTexture.png");
         ball->setGameObjectTexture(ballTexture);
         ball->setState(true);
 
-        game->addEntity(ball);
+        game->addEntity(ball); 
         game->addMovingEntity(ball);
-        game->setBall(Ball);
+        game->setBall(ball);
 
         game->setisNewGame(true);
         game->setGameState(true);
 
         this->addScreen(game);
-        this->setCurrentGame(game);
+        this->setCurrentScreen(game);
     }
 };

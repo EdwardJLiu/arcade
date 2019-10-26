@@ -9,7 +9,10 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+            "problemMatcher": [
+                "$go"
+            ]
         },
         {
             "label": "build arcadeSystem",
@@ -36,7 +39,10 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+            "problemMatcher": [
+                "$go"
+            ]
         },
         {
             "label": "recompile gui",
